@@ -176,7 +176,7 @@ const Frame = ({ dark, children, style={}, pad=true }) => (
     backgroundImage: dark ? GRAIN : 'none',
     position:'relative', overflow:'hidden',
     display:'flex', flexDirection:'column',
-    padding: pad ? 'clamp(48px, 6vw, 112px)' : 0,
+    padding: pad ? 'clamp(40px, 5.5vw, 88px)' : 0,
     ...style,
   }}>{children}</div>
 );
@@ -354,7 +354,7 @@ function S03() {
     <Frame>
       <TopBar eyebrow="La oportunidad" color={C.optica} n={3} total={TOTAL} />
 
-      <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x3, maxWidth:'min(820px, 90%)' }}>
+      <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.xl, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="La oportunidad está ahí." remate="Solo falta el sistema." />
       </div>
 
@@ -362,13 +362,13 @@ function S03() {
         {items.map((item, i) => (
           <div key={i} className={`fu d${i+3}`} style={{
             display:'grid',
-            gridTemplateColumns:'clamp(120px, 14vw, 200px) 1fr auto',
-            gap:'clamp(24px, 3vw, 48px)', alignItems:'center',
-            padding:`${S.x2}px 0`,
+            gridTemplateColumns:'clamp(100px, 12vw, 180px) 1fr auto',
+            gap:'clamp(20px, 2.5vw, 40px)', alignItems:'center',
+            padding:`${S.lg}px 0`,
             borderTop: `1px solid ${C.ruleSoft}`,
             borderBottom: i === items.length - 1 ? `1px solid ${C.ruleSoft}` : 'none',
           }}>
-            <Ornament color={item.color} size="big" opacity={0.7}>{item.n}</Ornament>
+            <Ornament color={item.color} size="mid" opacity={0.7}>{item.n}</Ornament>
             <div style={{ maxWidth:'min(580px, 92%)' }}>
               <div style={{
                 fontFamily:F.sans, fontSize:T.subtitle, fontWeight:700,
