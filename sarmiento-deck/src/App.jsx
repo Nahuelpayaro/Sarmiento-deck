@@ -489,25 +489,29 @@ function S05() {
     <Frame dark>
       <TopBar eyebrow="La propuesta" color={C.opticaLight} n={5} total={TOTAL} dark />
 
-      <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 92%)' }}>
+      <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.xl, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Un sistema completo." remate="Construido para durar." dark />
       </div>
 
+      {/* Open grid — no container box, divisions through subtle horizontal rules */}
       <div style={{
         flex:1,
-        display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gridTemplateRows:'1fr 1fr',
-        gap:1, background:C.ruleDark,
-        borderRadius:14, overflow:'hidden',
+        display:'grid',
+        gridTemplateColumns:'repeat(3, 1fr)',
+        gridTemplateRows:'1fr 1fr',
+        columnGap:'clamp(24px, 3vw, 56px)',
+        rowGap:0,
       }}>
         {items.map((item, i) => (
           <div key={i} className={`fsc d${i+1}`} style={{
-            background:'rgba(255,255,255,0.025)',
-            padding:'clamp(24px, 3vw, 40px)',
+            padding:`${S.lg}px 0`,
             display:'flex', flexDirection:'column', justifyContent:'space-between',
-            position:'relative', overflow:'hidden',
+            gap:S.md,
+            borderTop: `1px solid ${C.ruleDark}`,
+            borderBottom: i >= 3 ? `1px solid ${C.ruleDark}` : 'none',
+            position:'relative', minWidth:0,
           }}>
-            {/* HUGE number anchored top-left */}
-            <Ornament color={item.light} size="big" opacity={0.85}>{item.n}</Ornament>
+            <Ornament color={item.light} size="mid" opacity={0.85}>{item.n}</Ornament>
 
             <div>
               <div style={{
