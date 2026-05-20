@@ -594,8 +594,8 @@ function Method() {
       </div>
 
       <div className="fu d3" style={{
-        fontFamily:F.sans, fontSize:T.subtitle, fontWeight:300,
-        color:C.paperMute, lineHeight:1.4,
+        fontFamily:F.sans, fontSize:T.body, fontWeight:400,
+        color:C.paperMute, lineHeight:1.5,
         maxWidth:'min(720px, 86%)',
         marginBottom:S.xl,
       }}>
