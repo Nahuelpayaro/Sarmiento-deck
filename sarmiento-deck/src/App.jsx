@@ -1857,23 +1857,59 @@ export default function App() {
 
   // ─── PRINT MODE ───────────────────────────────────────────────────
   // For PDF export. Open URL with ?print=1 then Chrome → Print → Save as PDF
-  // Paper size: 1920×1080 px (or custom 50.8×28.575cm). Margins: None.
+  // Uses A4 landscape paper, each slide scaled to fit with minimal letterboxing.
   if (printMode) {
     return (
       <>
         <style>{FONTS}</style>
         <style>{`
-          @page { size: 1920px 1080px; margin: 0; }
-          @media print { body { margin: 0; } .print-slide { break-after: page; page-break-after: always; } }
-          body { background: #000; }
+          @page { size: A4 landscape; margin: 0; }
+          html, body { margin: 0; padding: 0; background: #000; }
+          .print-page {
+            width: 297mm;
+            height: 210mm;
+            page-break-after: always;
+            break-after: page;
+            page-break-inside: avoid;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .print-page:last-child {
+            page-break-after: auto;
+            break-after: auto;
+          }
+          .print-slide-wrap {
+            width: 1122.5px;
+            height: 631.4px;
+            position: relative;
+            overflow: hidden;
+          }
+          .print-slide-inner {
+            width: 1920px;
+            height: 1080px;
+            transform: scale(0.5846);
+            transform-origin: top left;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          @media print {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
         `}</style>
-        <div style={{ background:'#000' }}>
+        <div>
           {SLIDES.map((SlideFn, i) => (
-            <div key={i} className="print-slide" style={{
-              width:1920, height:1080, position:'relative', overflow:'hidden',
-              breakAfter:'page', pageBreakAfter:'always',
-            }}>
-              <SlideFn />
+            <div key={i} className="print-page">
+              <div className="print-slide-wrap">
+                <div className="print-slide-inner">
+                  <SlideFn />
+                </div>
+              </div>
             </div>
           ))}
         </div>
