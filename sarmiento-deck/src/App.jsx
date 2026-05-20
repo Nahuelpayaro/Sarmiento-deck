@@ -494,9 +494,9 @@ function Method() {
       <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.lg, maxWidth:'min(960px, 92%)' }}>
         <div style={{
           fontFamily:F.serif, fontStyle:'italic', fontWeight:400,
-          fontSize:T.display, lineHeight:0.95,
+          fontSize:T.title, lineHeight:1.05,
           letterSpacing:'-0.025em', color:'#fff',
-        }}>Brand System<br/>para Salud.</div>
+        }}>Brand System para Salud.</div>
       </div>
 
       <div className="fu d3" style={{
