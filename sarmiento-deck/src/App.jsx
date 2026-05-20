@@ -204,7 +204,7 @@ const BottomBar = ({ children, dark, dots=true }) => (
 );
 
 // ═══ SLIDES ════════════════════════════════════════════════════════════
-const TOTAL = 18;
+const TOTAL = 19;
 
 // ── S01 · COVER ───────────────────────────────────────────────────────
 function S01() {
@@ -475,7 +475,77 @@ function S04() {
   );
 }
 
-// ── S05 · LA PROPUESTA ────────────────────────────────────────────────
+// ── S05 · BRAND SYSTEM PARA SALUD · NUESTRO MÉTODO ────────────────────
+function Method() {
+  const principles = [
+    { n:'01', color:C.clinicaLight,   accent:C.clinica,  title:'Confianza antes que deseo',
+      body:'La salud se elige con confianza, no con aspiración. La marca tiene que generar seguridad, no envidia.' },
+    { n:'02', color:C.opticaLight,    accent:C.optica,   title:'Sistema antes que estética',
+      body:'La arquitectura sostiene todo lo demás. Primero ordenamos cómo se relacionan las marcas, después diseñamos.' },
+    { n:'03', color:C.farmaciaLight,  accent:C.farmacia, title:'Coherencia sin uniformidad',
+      body:'Cada unidad con voz propia, todas con una misma marca. Clínica, óptica y farmacia no son lo mismo.' },
+    { n:'04', color:C.clinicaLight,   accent:C.clinica,  title:'Lenguaje médico, código humano',
+      body:'Autoridad técnica con calidez real. No hablamos como hospital frío ni como anuncio de bienestar.' },
+  ];
+  return (
+    <Frame dark>
+      <TopBar eyebrow="El método" color={C.opticaLight} n={5} total={TOTAL} dark />
+
+      <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.lg, maxWidth:'min(960px, 92%)' }}>
+        <div style={{
+          fontFamily:F.serif, fontStyle:'italic', fontWeight:400,
+          fontSize:T.display, lineHeight:0.95,
+          letterSpacing:'-0.025em', color:'#fff',
+        }}>Brand System<br/>para Salud.</div>
+      </div>
+
+      <div className="fu d3" style={{
+        fontFamily:F.sans, fontSize:T.subtitle, fontWeight:300,
+        color:C.paperMute, lineHeight:1.4,
+        maxWidth:'min(720px, 86%)',
+        marginBottom:S.xl,
+      }}>
+        Un método de identidad y comunicación para ecosistemas de salud con múltiples unidades. Construimos marcas que funcionan como infraestructura.
+      </div>
+
+      {/* 2x2 grid of principles */}
+      <div style={{
+        flex:1,
+        display:'grid',
+        gridTemplateColumns:'1fr 1fr',
+        gridTemplateRows:'1fr 1fr',
+        columnGap:'clamp(32px, 4vw, 64px)',
+        rowGap:S.lg,
+      }}>
+        {principles.map((p, i) => (
+          <div key={i} className={`fu d${i+4}`} style={{
+            display:'grid',
+            gridTemplateColumns:'clamp(56px, 6.5vw, 88px) 1fr',
+            gap:S.lg, alignItems:'flex-start',
+            borderTop:`1px solid ${C.ruleDark}`,
+            paddingTop:S.lg,
+          }}>
+            <Ornament color={p.color} size="sm" opacity={0.85}>{p.n}</Ornament>
+            <div>
+              <div style={{
+                fontFamily:F.sans, fontWeight:700,
+                fontSize:T.subtitle, color:'#fff',
+                marginBottom:S.sm, letterSpacing:'-0.015em',
+                lineHeight:1.15,
+              }}>{p.title}</div>
+              <Body dark>{p.body}</Body>
+              <Accent width={28} color={p.accent} style={{ marginTop:S.md }} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <BottomBar dark>"El método que sostiene a Sarmiento."</BottomBar>
+    </Frame>
+  );
+}
+
+// ── S06 · LA PROPUESTA ────────────────────────────────────────────────
 function S05() {
   const items = [
     { n:'01', label:'Identidad Visual',  sub:'Marca madre + 3 unidades',  color:C.clinica,  light:C.clinicaLight },
@@ -487,7 +557,7 @@ function S05() {
   ];
   return (
     <Frame dark>
-      <TopBar eyebrow="La propuesta" color={C.opticaLight} n={5} total={TOTAL} dark />
+      <TopBar eyebrow="La propuesta" color={C.opticaLight} n={6} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.xl, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Un sistema completo." remate="Construido para durar." dark />
@@ -540,7 +610,7 @@ function S06() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Arquitectura de marca" n={6} total={TOTAL} />
+      <TopBar eyebrow="Arquitectura de marca" n={7} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Una marca madre." remate="Tres identidades propias." />
@@ -620,7 +690,7 @@ function S06() {
   );
 }
 
-// ── S07 · POR QUÉ EXISTE SARMIENTO ────────────────────────────────────
+// ── S08 · POR QUÉ EXISTE SARMIENTO ────────────────────────────────────
 function S07() {
   const items = [
     { n:'01', color:C.clinicaLight,   accent:C.clinica,  title:'Autoridad compartida',
@@ -632,7 +702,7 @@ function S07() {
   ];
   return (
     <Frame dark>
-      <TopBar eyebrow="Por qué existe Sarmiento" color={C.opticaLight} n={7} total={TOTAL} dark />
+      <TopBar eyebrow="Por qué existe Sarmiento" color={C.opticaLight} n={8} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x3, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="El nombre que une todo" remate="sin uniformar nada." dark />
@@ -672,7 +742,7 @@ function S07() {
   );
 }
 
-// ── S08 · SISTEMA VISUAL ──────────────────────────────────────────────
+// ── S09 · SISTEMA VISUAL ──────────────────────────────────────────────
 function S08() {
   const palette = [
     { color:C.deep,     name:'Sarmiento', hex:'#1B3A5C' },
@@ -690,7 +760,7 @@ function S08() {
         display:'flex', flexDirection:'column', justifyContent:'space-between',
       }}>
         <div>
-          <SlideTag n={8} total={TOTAL} dark />
+          <SlideTag n={9} total={TOTAL} dark />
           <div className="fu d1" style={{ marginTop:S.xl }}>
             <Eyebrow color={C.opticaLight} dark>Sistema visual</Eyebrow>
             <div style={{
@@ -783,7 +853,7 @@ function S08() {
   );
 }
 
-// ── S09 · WEB ─────────────────────────────────────────────────────────
+// ── S10 · WEB ─────────────────────────────────────────────────────────
 function S09() {
   const rows = [
     ['3 páginas estáticas',          'Estructura completa de conversión'],
@@ -794,7 +864,7 @@ function S09() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Web" color={C.clinica} n={9} total={TOTAL} />
+      <TopBar eyebrow="Web" color={C.clinica} n={10} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x3, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Un sitio que trabaja" remate="mientras la clínica atiende." />
@@ -838,7 +908,7 @@ function S09() {
   );
 }
 
-// ── S10 · REDES SOCIALES ──────────────────────────────────────────────
+// ── S11 · REDES SOCIALES ──────────────────────────────────────────────
 function S10() {
   const units = [
     { name:'Clínica Sarmiento',         color:C.clinica,  light:C.clinicaLight,  tag:'Autoridad médica',
@@ -853,7 +923,7 @@ function S10() {
   ];
   return (
     <Frame dark>
-      <TopBar eyebrow="Redes sociales" color={C.clinicaLight} n={10} total={TOTAL} dark />
+      <TopBar eyebrow="Redes sociales" color={C.clinicaLight} n={11} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Tres cuentas." remate="Un solo sistema." dark />
@@ -901,7 +971,7 @@ function S10() {
   );
 }
 
-// ── S11 · CONTENIDO (Sistema temático) ────────────────────────────────
+// ── S12 · CONTENIDO (Sistema temático) ────────────────────────────────
 function S11() {
   const units = [
     { name:'Clínica',   color:C.clinica,  tag:'Educativo',
@@ -913,7 +983,7 @@ function S11() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Contenido" color={C.clinica} n={11} total={TOTAL} />
+      <TopBar eyebrow="Contenido" color={C.clinica} n={12} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Tres cuentas." remate="Una misma historia." />
@@ -974,7 +1044,7 @@ function S11() {
   );
 }
 
-// ── S12 · ESPACIO FÍSICO ──────────────────────────────────────────────
+// ── S13 · ESPACIO FÍSICO ──────────────────────────────────────────────
 function S12() {
   const blocks = [
     { n:'01', color:C.clinica,  title:'Fachada y acceso',
@@ -986,7 +1056,7 @@ function S12() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Espacio físico" color={C.farmacia} n={12} total={TOTAL} />
+      <TopBar eyebrow="Espacio físico" color={C.farmacia} n={13} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x3, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="La marca no vive" remate="solo en la pantalla." />
@@ -1034,7 +1104,7 @@ function S12() {
   );
 }
 
-// ── S13 · MÉTODO DE TRABAJO ───────────────────────────────────────────
+// ── S14 · MÉTODO DE TRABAJO ───────────────────────────────────────────
 function S13() {
   const steps = [
     { label:'Semana 1',       title:'Planificación', items:['Reunión mensual','Calendario del mes','Brief creativo'], color:C.clinicaLight },
@@ -1053,7 +1123,7 @@ function S13() {
         display:'flex', flexDirection:'column', justifyContent:'space-between',
         borderRight:`1px solid ${C.ruleDark}`,
       }}>
-        <SlideTag n={13} total={TOTAL} dark />
+        <SlideTag n={14} total={TOTAL} dark />
         <div className="fu d1">
           <Eyebrow color={C.opticaLight} dark>Método de trabajo</Eyebrow>
           <div style={{ marginTop:S.md }}>
@@ -1123,7 +1193,7 @@ function S13() {
   );
 }
 
-// ── S14 · ENTREGABLES ─────────────────────────────────────────────────
+// ── S15 · ENTREGABLES ─────────────────────────────────────────────────
 function S14() {
   const sections = [
     { title:'Identidad Visual', color:C.clinica,  items:['4 logos + Sarmiento','Manual de marca','Firmas + Favicon'] },
@@ -1135,7 +1205,7 @@ function S14() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Entregables" n={14} total={TOTAL} />
+      <TopBar eyebrow="Entregables" n={15} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Todo lo que incluye" remate="el sistema." />
@@ -1189,7 +1259,7 @@ function S14() {
   );
 }
 
-// ── S15 · BREATHER · LA PROMESA ───────────────────────────────────────
+// ── S16 · BREATHER · LA PROMESA ───────────────────────────────────────
 function S15() {
   return (
     <Frame>
@@ -1199,7 +1269,7 @@ function S15() {
           fontFamily:F.sans, fontSize:T.caption, fontWeight:600,
           letterSpacing:'0.2em', color:C.inkMute, textTransform:'uppercase',
         }}>Nuestra promesa</div>
-        <SlideTag n={15} total={TOTAL} />
+        <SlideTag n={16} total={TOTAL} />
       </div>
 
       {/* HERO — anchored center-left, dominant */}
@@ -1256,11 +1326,11 @@ function S15() {
   );
 }
 
-// ── S16 · LA INVERSIÓN ────────────────────────────────────────────────
+// ── S17 · LA INVERSIÓN ────────────────────────────────────────────────
 function S16() {
   return (
     <Frame dark>
-      <TopBar eyebrow="La inversión" color={C.opticaLight} n={16} total={TOTAL} dark />
+      <TopBar eyebrow="La inversión" color={C.opticaLight} n={17} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Una inversión con" remate="retorno concreto." dark />
@@ -1379,7 +1449,7 @@ function S16() {
   );
 }
 
-// ── S17 · PRÓXIMOS PASOS ──────────────────────────────────────────────
+// ── S18 · PRÓXIMOS PASOS ──────────────────────────────────────────────
 function S17() {
   const phases = [
     { n:'01', period:'Mes 1',    title:'Fundamentos',       color:C.clinica,  items:['Kick-off y relevamiento','Identidad visual','Manual de marca'] },
@@ -1389,7 +1459,7 @@ function S17() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Próximos pasos" n={17} total={TOTAL} />
+      <TopBar eyebrow="Próximos pasos" n={18} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Qué pasa si" remate="arrancamos hoy." />
@@ -1433,12 +1503,12 @@ function S17() {
   );
 }
 
-// ── S18 · CIERRE ──────────────────────────────────────────────────────
+// ── S19 · CIERRE ──────────────────────────────────────────────────────
 function S18() {
   return (
     <Frame dark>
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start' }}>
-        <SlideTag n={18} total={TOTAL} dark />
+        <SlideTag n={19} total={TOTAL} dark />
         <div style={{
           fontFamily:F.sans, fontSize:T.caption, fontWeight:500,
           letterSpacing:'0.2em', textTransform:'uppercase',
@@ -1553,7 +1623,7 @@ function Nav({ cur, total, onNext, onPrev, visible }) {
 
 // ─── APP ──────────────────────────────────────────────────────────────
 
-const SLIDES = [S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18];
+const SLIDES = [S01, S02, S03, S04, Method, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18];
 
 export default function App() {
   const [cur, setCur] = useState(0);
