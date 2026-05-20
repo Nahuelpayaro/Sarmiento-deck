@@ -204,7 +204,7 @@ const BottomBar = ({ children, dark, dots=true }) => (
 );
 
 // ═══ SLIDES ════════════════════════════════════════════════════════════
-const TOTAL = 20;
+const TOTAL = 21;
 
 // ── S01 · COVER ───────────────────────────────────────────────────────
 function S01() {
@@ -1543,6 +1543,79 @@ function S16() {
   );
 }
 
+
+// ── S19 · LAS GARANTÍAS · CÓMO ASEGURAMOS EL RESULTADO ────────────────
+function Guarantees() {
+  const guarantees = [
+    {
+      n:'01',
+      title:'Total propiedad desde el día 1',
+      body:'Identidad, web, archivos, accesos y contraseñas son tuyos desde el primer entregable. Si decidís seguir solo, te llevás todo. No hay nada "rehén".',
+      color:C.clinicaLight, accent:C.clinica,
+    },
+    {
+      n:'02',
+      title:'Derecho a cancelar entre hitos',
+      body:'Cada hito del Setup es un punto de decisión. Aprobás la identidad antes de pasar a la web. Aprobás la web antes de arrancar el retainer. Si no querés seguir, no seguís.',
+      color:C.opticaLight, accent:C.optica,
+    },
+    {
+      n:'03',
+      title:'Programa 1 a 1',
+      body:'Sarmiento forma parte de nuestro Programa 1 a 1: nos enfocamos exclusivamente en el crecimiento de un proyecto a la vez. Sin clientes paralelos. Tu resultado es nuestra única métrica.',
+      color:C.farmaciaLight, accent:C.farmacia,
+    },
+  ];
+
+  return (
+    <Frame dark>
+      <TopBar eyebrow="Las garantías" color={C.opticaLight} n={19} total={TOTAL} dark />
+
+      <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.xl, maxWidth:'min(900px, 92%)' }}>
+        <Headline lead="Cómo te aseguramos" remate="el resultado." dark />
+      </div>
+
+      <div style={{
+        flex:1, display:'flex', flexDirection:'column',
+        justifyContent:'center',
+      }}>
+        {guarantees.map((g, i) => (
+          <div key={i} className={`fu d${i+3}`} style={{
+            display:'grid',
+            gridTemplateColumns:'clamp(60px, 7vw, 90px) 1fr',
+            gap:'clamp(20px, 2.5vw, 36px)',
+            alignItems:'flex-start',
+            padding:`${S.lg}px 0`,
+            borderTop:`1px solid ${C.ruleDark}`,
+            borderBottom: i === guarantees.length - 1 ? `1px solid ${C.ruleDark}` : 'none',
+          }}>
+            <div style={{
+              fontFamily:F.serif, fontStyle:'italic',
+              fontSize:'clamp(36px, 4.5vw, 60px)',
+              color:g.color, opacity:0.75,
+              lineHeight:1, fontWeight:400,
+            }}>{g.n}</div>
+
+            <div>
+              <div style={{
+                fontFamily:F.sans, fontWeight:700,
+                fontSize:T.subtitle, color:'#fff',
+                marginBottom:S.sm, letterSpacing:'-0.015em',
+                lineHeight:1.15,
+              }}>{g.title}</div>
+              <Body dark style={{ maxWidth:'min(820px, 94%)' }}>{g.body}</Body>
+              <Accent width={28} color={g.accent} style={{ marginTop:S.md }} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <BottomBar dark>"La seguridad no es una promesa. Es estructura."</BottomBar>
+    </Frame>
+  );
+}
+
+
 // ── S18 · PRÓXIMOS PASOS ──────────────────────────────────────────────
 function S17() {
   const phases = [
@@ -1553,7 +1626,7 @@ function S17() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Próximos pasos" n={19} total={TOTAL} />
+      <TopBar eyebrow="Próximos pasos" n={20} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Qué pasa si" remate="arrancamos hoy." />
@@ -1602,7 +1675,7 @@ function S18() {
   return (
     <Frame dark>
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start' }}>
-        <SlideTag n={20} total={TOTAL} dark />
+        <SlideTag n={21} total={TOTAL} dark />
         <div style={{
           fontFamily:F.sans, fontSize:T.caption, fontWeight:500,
           letterSpacing:'0.2em', textTransform:'uppercase',
@@ -1717,7 +1790,7 @@ function Nav({ cur, total, onNext, onPrev, visible }) {
 
 // ─── APP ──────────────────────────────────────────────────────────────
 
-const SLIDES = [S01, S02, S03, S04, Year1, Method, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18];
+const SLIDES = [S01, S02, S03, S04, Year1, Method, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, Guarantees, S17, S18];
 
 export default function App() {
   const [cur, setCur] = useState(0);
