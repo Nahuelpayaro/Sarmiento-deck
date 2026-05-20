@@ -1556,7 +1556,7 @@ function Guarantees() {
     {
       n:'02',
       title:'Derecho a cancelar entre hitos',
-      body:'Cada hito del Setup es un punto de decisión. Aprobás la identidad antes de pasar a la web. Aprobás la web antes de arrancar el retainer. Si no querés seguir, no seguís.',
+      body:'Cada hito del Setup es un punto de decisión. Aprobás la identidad antes de pasar a la web. Si algo no funciona en el camino, lo conversamos: ajustamos juntos o tomamos otro rumbo.',
       color:C.opticaLight, accent:C.optica,
     },
     {
