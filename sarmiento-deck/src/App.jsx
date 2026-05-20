@@ -505,7 +505,7 @@ function Method() {
         maxWidth:'min(720px, 86%)',
         marginBottom:S.xl,
       }}>
-        Un método de identidad y comunicación para ecosistemas de salud con múltiples unidades. Construimos marcas que funcionan como infraestructura.
+        Un método de marca para ecosistemas de salud con múltiples unidades.
       </div>
 
       {/* 2x2 grid of principles */}
