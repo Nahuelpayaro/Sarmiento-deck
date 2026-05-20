@@ -605,8 +605,8 @@ function S05() {
 function S06() {
   const units = [
     { label:'Clínica Sarmiento',   color:C.clinica,  tag:'Autoridad médica' },
-    { label:'Centro Óptico',       color:C.optica,   tag:'Estilo y visión' },
-    { label:'Farmacia',             color:C.farmacia, tag:'Cercanía y salud' },
+    { label:'Centro Óptico',       color:C.optica,   tag:'Visión y estilo' },
+    { label:'Farmacia',             color:C.farmacia, tag:'Salud y bienestar' },
   ];
   return (
     <Frame>
@@ -914,10 +914,10 @@ function S10() {
     { name:'Clínica Sarmiento',         color:C.clinica,  light:C.clinicaLight,  tag:'Autoridad médica',
       content:'Especialidades · Equipo · Tecnología · Salud preventiva',
       freq:'4 posts + 5 stories' },
-    { name:'Centro Óptico Sarmiento',   color:C.optica,   light:C.opticaLight,   tag:'Estilo y visión',
+    { name:'Centro Óptico Sarmiento',   color:C.optica,   light:C.opticaLight,   tag:'Visión y estilo',
       content:'Productos · Tendencias · Consejos · Conexión con clínica',
       freq:'4 posts + 4 stories' },
-    { name:'Farmacia Sarmiento',         color:C.farmacia, light:C.farmaciaLight, tag:'Cercanía y bienestar',
+    { name:'Farmacia Sarmiento',         color:C.farmacia, light:C.farmaciaLight, tag:'Salud y bienestar',
       content:'Salud cotidiana · Productos · Recordatorios · Tratamientos',
       freq:'3 posts + 3 stories' },
   ];
