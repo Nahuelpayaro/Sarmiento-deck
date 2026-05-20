@@ -256,7 +256,7 @@ function S01() {
         <div className="fu d7" style={{
           fontFamily:F.sans, fontSize:T.caption, fontWeight:600,
           color:C.paperFaint, letterSpacing:'0.18em', textTransform:'uppercase',
-        }}>Formosa · 2025</div>
+        }}>Formosa · 2026</div>
       </div>
     </Frame>
   );
@@ -799,7 +799,7 @@ function S07() {
       <TopBar eyebrow="Por qué existe Sarmiento" color={C.opticaLight} n={9} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x3, maxWidth:'min(820px, 92%)' }}>
-        <Headline lead="El nombre que une todo" remate="sin uniformar nada." dark />
+        <Headline lead="Una marca madre" remate="Tres voces propias." dark />
       </div>
 
       <div style={{ flex:1, display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:S.lg, alignItems:'stretch' }}>
@@ -1680,7 +1680,7 @@ function S18() {
           fontFamily:F.sans, fontSize:T.caption, fontWeight:500,
           letterSpacing:'0.2em', textTransform:'uppercase',
           color:C.paperFaint,
-        }}>Propuesta confidencial</div>
+        }}>Propuesta comercial</div>
       </div>
 
       {/* HERO — mirror of cover but centered */}
