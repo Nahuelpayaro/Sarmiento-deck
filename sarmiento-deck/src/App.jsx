@@ -204,7 +204,7 @@ const BottomBar = ({ children, dark, dots=true }) => (
 );
 
 // ═══ SLIDES ════════════════════════════════════════════════════════════
-const TOTAL = 19;
+const TOTAL = 20;
 
 // ── S01 · COVER ───────────────────────────────────────────────────────
 function S01() {
@@ -475,7 +475,101 @@ function S04() {
   );
 }
 
-// ── S05 · BRAND SYSTEM PARA SALUD · NUESTRO MÉTODO ────────────────────
+// ── S05 · EL AÑO 1 · COMO SE VE SARMIENTO EN 12 MESES ────────────────
+function Year1() {
+  const milestones = [
+    {
+      time:'2', label:'Mes 2', title:'Bases construidas',
+      color:C.clinica, light:C.clinicaLight,
+      items:[
+        'Identidad de las 4 marcas entregada',
+        'Landing page con gestor de turnos en producción',
+        'Señalética entregada para implementación',
+        'Sistema de trabajo operativo',
+      ],
+    },
+    {
+      time:'6', label:'Mes 6', title:'Sistema en marcha',
+      color:C.optica, light:C.opticaLight,
+      items:[
+        '3 cuentas con varios meses de contenido',
+        'Web posicionando en búsquedas locales',
+        'Audiencia inicial construida',
+        'Primeras métricas mensuales estables',
+      ],
+    },
+    {
+      time:'12', label:'Mes 12', title:'Resultados consolidados',
+      color:C.farmacia, light:C.farmaciaLight,
+      items:[
+        'Audiencia establecida en las 3 cuentas',
+        'Reconocimiento del nombre en Formosa',
+        'Flujo constante de consultas digitales',
+        'Base lista para la nueva clínica',
+      ],
+    },
+  ];
+
+  return (
+    <Frame>
+      <TopBar eyebrow="El año 1" color={C.clinica} n={5} total={TOTAL} />
+
+      <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.xl, maxWidth:'min(900px, 92%)' }}>
+        <Headline lead="Cómo se ve Sarmiento" remate="dentro de 12 meses." />
+      </div>
+
+      {/* Timeline: 3 milestones in horizontal columns */}
+      <div style={{
+        flex:1,
+        display:'grid', gridTemplateColumns:'repeat(3, 1fr)',
+        columnGap:'clamp(32px, 4vw, 64px)',
+      }}>
+        {milestones.map((m, i) => (
+          <div key={i} className={`fu d${i+3}`} style={{
+            display:'flex', flexDirection:'column',
+            paddingTop:S.lg,
+            borderTop:`1px solid ${C.ruleSoft}`,
+          }}>
+            <Ornament color={m.light} size="mid" opacity={0.65} style={{ marginBottom:S.lg }}>
+              {m.time}
+            </Ornament>
+
+            <div style={{
+              fontFamily:F.sans, fontSize:T.caption, fontWeight:700,
+              letterSpacing:'0.16em', textTransform:'uppercase',
+              color:m.color, marginBottom:S.xs,
+            }}>{m.label}</div>
+
+            <div style={{
+              fontFamily:F.sans, fontWeight:700,
+              fontSize:T.subtitle, color:C.ink,
+              letterSpacing:'-0.015em', lineHeight:1.15,
+              marginBottom:S.lg,
+            }}>{m.title}</div>
+
+            <div style={{ display:'flex', flexDirection:'column', gap:S.sm }}>
+              {m.items.map((item, j) => (
+                <div key={j} style={{ display:'flex', gap:S.sm, alignItems:'flex-start' }}>
+                  <div style={{
+                    width:5, height:5, borderRadius:'50%',
+                    background:m.color, flexShrink:0, marginTop:10,
+                  }}/>
+                  <Body style={{ lineHeight:1.5 }}>{item}</Body>
+                </div>
+              ))}
+            </div>
+
+            <Accent width={28} color={m.color} style={{ marginTop:S.lg }} />
+          </div>
+        ))}
+      </div>
+
+      <BottomBar>"Los hitos son direccionales. Los tiempos se ajustan al ritmo de Sarmiento."</BottomBar>
+    </Frame>
+  );
+}
+
+// ── S06 · BRAND SYSTEM PARA SALUD · NUESTRO MÉTODO ────────────────────
 function Method() {
   const principles = [
     { n:'01', color:C.clinicaLight,   accent:C.clinica,  title:'Confianza antes que deseo',
@@ -489,7 +583,7 @@ function Method() {
   ];
   return (
     <Frame dark>
-      <TopBar eyebrow="El método" color={C.opticaLight} n={5} total={TOTAL} dark />
+      <TopBar eyebrow="El método" color={C.opticaLight} n={6} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.lg, maxWidth:'min(960px, 92%)' }}>
         <div style={{
@@ -557,7 +651,7 @@ function S05() {
   ];
   return (
     <Frame dark>
-      <TopBar eyebrow="La propuesta" color={C.opticaLight} n={6} total={TOTAL} dark />
+      <TopBar eyebrow="La propuesta" color={C.opticaLight} n={7} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.lg, marginBottom:S.xl, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Un sistema completo." remate="Construido para durar." dark />
@@ -610,7 +704,7 @@ function S06() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Arquitectura de marca" n={7} total={TOTAL} />
+      <TopBar eyebrow="Arquitectura de marca" n={8} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Una marca madre." remate="Tres identidades propias." />
@@ -702,7 +796,7 @@ function S07() {
   ];
   return (
     <Frame dark>
-      <TopBar eyebrow="Por qué existe Sarmiento" color={C.opticaLight} n={8} total={TOTAL} dark />
+      <TopBar eyebrow="Por qué existe Sarmiento" color={C.opticaLight} n={9} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x3, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="El nombre que une todo" remate="sin uniformar nada." dark />
@@ -760,7 +854,7 @@ function S08() {
         display:'flex', flexDirection:'column', justifyContent:'space-between',
       }}>
         <div>
-          <SlideTag n={9} total={TOTAL} dark />
+          <SlideTag n={10} total={TOTAL} dark />
           <div className="fu d1" style={{ marginTop:S.xl }}>
             <Eyebrow color={C.opticaLight} dark>Sistema visual</Eyebrow>
             <div style={{
@@ -864,7 +958,7 @@ function S09() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Web" color={C.clinica} n={10} total={TOTAL} />
+      <TopBar eyebrow="Web" color={C.clinica} n={11} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x3, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Un sitio que trabaja" remate="mientras la clínica atiende." />
@@ -923,7 +1017,7 @@ function S10() {
   ];
   return (
     <Frame dark>
-      <TopBar eyebrow="Redes sociales" color={C.clinicaLight} n={11} total={TOTAL} dark />
+      <TopBar eyebrow="Redes sociales" color={C.clinicaLight} n={12} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Tres cuentas." remate="Un solo sistema." dark />
@@ -983,7 +1077,7 @@ function S11() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Contenido" color={C.clinica} n={12} total={TOTAL} />
+      <TopBar eyebrow="Contenido" color={C.clinica} n={13} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Tres cuentas." remate="Una misma historia." />
@@ -1056,7 +1150,7 @@ function S12() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Espacio físico" color={C.farmacia} n={13} total={TOTAL} />
+      <TopBar eyebrow="Espacio físico" color={C.farmacia} n={14} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x3, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="La marca no vive" remate="solo en la pantalla." />
@@ -1123,7 +1217,7 @@ function S13() {
         display:'flex', flexDirection:'column', justifyContent:'space-between',
         borderRight:`1px solid ${C.ruleDark}`,
       }}>
-        <SlideTag n={14} total={TOTAL} dark />
+        <SlideTag n={15} total={TOTAL} dark />
         <div className="fu d1">
           <Eyebrow color={C.opticaLight} dark>Método de trabajo</Eyebrow>
           <div style={{ marginTop:S.md }}>
@@ -1205,7 +1299,7 @@ function S14() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Entregables" n={15} total={TOTAL} />
+      <TopBar eyebrow="Entregables" n={16} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Todo lo que incluye" remate="el sistema." />
@@ -1269,7 +1363,7 @@ function S15() {
           fontFamily:F.sans, fontSize:T.caption, fontWeight:600,
           letterSpacing:'0.2em', color:C.inkMute, textTransform:'uppercase',
         }}>Nuestra promesa</div>
-        <SlideTag n={16} total={TOTAL} />
+        <SlideTag n={17} total={TOTAL} />
       </div>
 
       {/* HERO — anchored center-left, dominant */}
@@ -1330,7 +1424,7 @@ function S15() {
 function S16() {
   return (
     <Frame dark>
-      <TopBar eyebrow="La inversión" color={C.opticaLight} n={17} total={TOTAL} dark />
+      <TopBar eyebrow="La inversión" color={C.opticaLight} n={18} total={TOTAL} dark />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 92%)' }}>
         <Headline lead="Una inversión con" remate="retorno concreto." dark />
@@ -1459,7 +1553,7 @@ function S17() {
   ];
   return (
     <Frame>
-      <TopBar eyebrow="Próximos pasos" n={18} total={TOTAL} />
+      <TopBar eyebrow="Próximos pasos" n={19} total={TOTAL} />
 
       <div className="fu d2" style={{ marginTop:S.xl, marginBottom:S.x2, maxWidth:'min(820px, 90%)' }}>
         <Headline lead="Qué pasa si" remate="arrancamos hoy." />
@@ -1508,7 +1602,7 @@ function S18() {
   return (
     <Frame dark>
       <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start' }}>
-        <SlideTag n={19} total={TOTAL} dark />
+        <SlideTag n={20} total={TOTAL} dark />
         <div style={{
           fontFamily:F.sans, fontSize:T.caption, fontWeight:500,
           letterSpacing:'0.2em', textTransform:'uppercase',
@@ -1623,7 +1717,7 @@ function Nav({ cur, total, onNext, onPrev, visible }) {
 
 // ─── APP ──────────────────────────────────────────────────────────────
 
-const SLIDES = [S01, S02, S03, S04, Method, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18];
+const SLIDES = [S01, S02, S03, S04, Year1, Method, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18];
 
 export default function App() {
   const [cur, setCur] = useState(0);
